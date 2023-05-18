@@ -7,6 +7,8 @@ import {Server} from "socket.io";
 import registerChatHandler from "./dao/listeners/chatsHandler.js";
 import ProductsRouter from "./router/ProductsRouter.js"
 import cartRouter from "./router/cartRouter.js"
+import productRouterMongo from "./router/mongoRouter/productRouterMongo.js"
+import cartRouterMongo from "./router/mongoRouter/cartRouterMongo.js"
 
 const app = express();
 const PORT = process.env.PORT || 8080;
@@ -29,10 +31,14 @@ app.set("view engine", "handlebars" );
 app.use("/", viewsRoutes);
 app.use("/api/products", ProductsRouter);
 app.use("/api/carts", cartRouter);
+app.use("/api/product", productRouterMongo);
+app.use("/api/cart", cartRouterMongo)
 
 
 io.on("connection", socket =>{
         registerChatHandler(io, socket);
-})
+});
+
+
 
 

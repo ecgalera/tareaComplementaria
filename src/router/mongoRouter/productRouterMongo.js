@@ -1,8 +1,8 @@
 import {Router} from "express";
-import ProductsManager from "../../dao/FileSystem/Manager/ProductManager.js";
+import ProductManager from "../../dao/Mongodb/Manager/productsManagerMongo.js";
 
 const router = Router();
-const productsServices = new ProductsManager();
+const productsServices = new ProductManager();
 
 // homologación de rutas consas sin parametros: 
 //-----------------------------------------
@@ -12,20 +12,9 @@ router.get("/", async (req, res)=>{
 });
 
 router.post("/", async (req, res)=>{
-    const {title,
-        description,
-        thumnails,
-        code,
-        price,
-        status,
-        category} = req.body;
-    if(!title ||
-        !description||
-        !thumnails||
-        !code||
-        !price||
-        !status||
-        !category)return res.status(400).send({status:"error", error: "incompled values"});
+    const {title,description,thumnails,code,price,status,category} = req.body;
+    if(!title ||!description||!thumnails||!code||!price||!status||!category)
+    return res.status(400).send({status:"error", error: "incompled values"});
         const product ={
             title,
             description,
@@ -33,9 +22,9 @@ router.post("/", async (req, res)=>{
             code,
             price,
             status,
-            category,
+            category
         };
-        const result = await productsServices. createProduct(product);
+        await productsServices.createProduct(product);
         res.sendStatus(201);
 
 });

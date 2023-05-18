@@ -6,7 +6,7 @@ const schema = new mongoose.Schema({
 
     products: []
     
-},{timestamps:{createdAt:creacted_at, updatedAt:update_at}});
+},{timestamps:{createdAt:"created_at", updatedAt:"updated_at"}});
 
 const cartModel = mongoose.model(collection, schema);
 

@@ -12,11 +12,11 @@ const schema = new mongoose.Schema({
         default: 0
     },
     status: {
-        tipe:Boolean,
-        default:true
+        tipe:Boolean
+    
     },
     category: String,
-},{timestamps:{createdAt:creacted_at, updatedAt:update_at}});
+}, {timestamps:{createdAt:"created_at", updatedAt:"updatedAt_at"}});
 
 const productModel = mongoose.model(collection, schema);
 
