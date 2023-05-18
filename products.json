@@ -1,0 +1,11 @@
+[
+	{
+		"title": "pan",
+		"description": "pan negro",
+		"code": "pan123",
+		"price": 400,
+		"status": "ok",
+		"category": "alimento",
+		"id": 1
+	}
+]

@@ -5,6 +5,8 @@ import handlebars from "express-handlebars";
 import viewsRoutes from "./router/viewsRouters.js";
 import {Server} from "socket.io";
 import registerChatHandler from "./dao/listeners/chatsHandler.js";
+import ProductsRouter from "./router/ProductsRouter.js"
+import cartRouter from "./router/cartRouter.js"
 
 const app = express();
 const PORT = process.env.PORT || 8080;
@@ -25,6 +27,9 @@ app.set("views", `${__dirname}/views` );
 app.set("view engine", "handlebars" );
 
 app.use("/", viewsRoutes);
+app.use("/api/products", ProductsRouter);
+app.use("/api/carts", cartRouter);
+
 
 io.on("connection", socket =>{
         registerChatHandler(io, socket);
