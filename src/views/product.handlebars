@@ -1,0 +1,16 @@
+<h1>product</h1>
+
+{{#each product}}
+{{title}}
+{{description}}
+{{price}}
+<br/><br/>
+{{/each}}
+
+{{#if hasPrevPage}}
+<a href="/?page={{prevPage}}"><button>Anterior</button></a>
+{{/if}}
+{{page}}
+{{#if hasNextPage}}
+<a href="/?page={{nextPage}}"><button>Siguiente</button></a>
+{{/if}}

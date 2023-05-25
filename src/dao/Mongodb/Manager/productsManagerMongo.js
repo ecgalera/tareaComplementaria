@@ -3,11 +3,11 @@ import productModel from "../Models/productsModels.js";
 export default class ProductManager{
 
     getProducts = (params)=>{
-            return productModel.find(params);
+            return productModel.find(params).lean()
     }
 
     getProductBy = (params) =>{
-        return productModel.findOne(params);
+        return productModel.findOne(params).lean();
     }
 
     createProduct = (product) =>{
