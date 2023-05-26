@@ -13,7 +13,7 @@ const schema = new mongoose.Schema({
         default: 0
     },
     status: {
-        tipe:Boolean
+        type:Boolean
     
     },
     category: String,

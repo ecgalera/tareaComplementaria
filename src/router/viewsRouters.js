@@ -6,7 +6,7 @@ const router = Router();
 
 router.get("/", async(req, res)=>{
     const {page = 1} =req.query;
-    const{docs, hasPrevPage, hasNextPage, prevPage, nextPage, ...rest}= await productModel.paginate({},{page, limit:5, lean:true});
+    const{docs, hasPrevPage, hasNextPage, prevPage, nextPage, ...rest}= await productModel.paginate({category:"verduleria"},{page, limit:3,lean:true});
     const product = docs;
     res.render("product", {
         product,
@@ -18,4 +18,5 @@ router.get("/chat", async(req, res)=>{
     res.render("companyChat")
 });
 
-export default router
+export default router;
+

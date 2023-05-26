@@ -16,9 +16,9 @@
     const {products}=req.body;
     if(!products)return res.status(400).send({status:"error", error: "incompled values"});
     const cart = {
-        products
-    }
-    const result = await serviceCart.createCart(cart);
+        products,
+      };             
+    await serviceCart.createCart(cart);
     res.sendStatus(201);
 
   });
@@ -31,7 +31,6 @@
   })
 
   
-
   router.delete("/:cid", async (req, res)=>{
     const {cid} = req.params;
     await serviceCart.deleteCart(cid);
@@ -43,10 +42,25 @@
     const {pid} = req.params;
     await serviceCart.updateProductInCart({_id:cid},{$pull:{products:{product:{_id:pid}}}});
     res.sendStatus(201)
-  })
+  });
+
+  // router.put("/:cid/products/:pid", async(req, res)=>{
+  //   const {cid} = req.params;
+  //   const {pid} = req.params;
+  //   const {quantity} = req.body
+  //   await serviceCart.updateCart({ _id: cid},
+  //     {
+  //     $set: { _id: pid},
+  //     $setOnInsert: { }
+  //     },
+  //     { upsert: true}     
+  //     )
+  //   res.sendStatus(201)
+  // })
 
   export default router;
   
+
 
 
 
