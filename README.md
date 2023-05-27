@@ -7,8 +7,7 @@ Detalle de lo incluido:
 - Puedo incorporar un producto a un cart.
 - Puedo elmiminar un cart completo.
 - Puedo eliminar un producto especifico en un cart.
-
-NO PUDE INCORPORAR LA QUANTITY, PROVE DE MIL MANERAS Y NO PUDE, SI ME PODES GUIAR TE LO AGRADECERÍA FINFINITAMENTE!!!
+- Puedo modificar la quantity en el cart 
 
 En el codigo agregue el archivo en json: carrito completo.postman_collection.json si lo importas podras tener las url de los distitos input.
 
