@@ -13,7 +13,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"products\":[]\r\n }",
+					"raw": "{\r\n    \"products\":{\"quantity\":1}\r\n }",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -138,6 +138,14 @@
 		},
 		{
 			"name": "agregar producto al carrito",
+			"request": {
+				"method": "PUT",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "modificar quantity",
 			"request": {
 				"method": "PUT",
 				"header": []
