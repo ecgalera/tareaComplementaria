@@ -1,8 +1,9 @@
 import {Router} from "express";
 import productModel from "../dao/Mongodb/Models/productsModels.js";
 
-
 const router = Router();
+
+
 
 router.get("/", async(req, res)=>{
     const {page = 1} =req.query;
@@ -17,6 +18,10 @@ router.get("/", async(req, res)=>{
 router.get("/chat", async(req, res)=>{
     res.render("companyChat")
 });
+
+router.get("/cart", async(req, res)=>{
+    res.render("cart")
+})
 
 export default router;
 

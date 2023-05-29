@@ -12,6 +12,12 @@
     res.send({status:"success", payload: carts});
   });
 
+  router.get("/:cid", async(req,res)=>{
+    const {cid} = req.params
+    const cartById = await serviceCart.getCartBy({_id:cid}).populate();
+    res.send(cartById)
+  })
+
   router.post("/", async (req, res)=>{
     const {products}=req.body;
     if(!products)return res.status(400).send({status:"error", error: "incompled values"});
