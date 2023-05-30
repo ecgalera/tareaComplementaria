@@ -57,6 +57,9 @@ router.post(`/:cId/product/:pId`, async (req, res) => {
   cartsManager.addProductToCart(idCart, cartToSend);
 });
 
+
+  
+
 router.put(`/:cId`, async (req, res) => {});
 
 router.delete("/:cId", async (req, res) => {});

@@ -1,7 +1,10 @@
 <h1>Carts</h1>
 
-<p id="cart"></p>
+{{#each producs}}
 
-{{cart}}
+{{this.title}} - {{this.price}}
+
+
+{{/each}}
 
 <script src="/js/cart.js"></script>

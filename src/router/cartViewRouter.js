@@ -13,4 +13,25 @@ router.get("/:cid", async(req, res)=>{
     res.render("cart", {cart})
 })
 
+router.get(`/:cid`, async (request, response) => {
+    try {
+      const { cid } = request.params;
+      const cart = await cartManager.getCartBy(cid);
+      console.log(cart)
+      if (!cart) {
+      return response.status(404).send({ message: "ID not found" });
+    
+    }
+    
+    // Renderiza la plantilla ‘cart’ y pasa los datos del carrito
+    
+    response.render("cart", { product: cart.product });
+    
+    } catch (err) {
+    
+    console.log(err);
+    
+    }
+    
+    });
 export default router;
